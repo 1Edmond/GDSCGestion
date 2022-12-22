@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GDSCGestion.Views.UserListPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             xmlns:vm="clr-namespace:GDSCGestion.ViewModels"
+             xmlns:model="clr-namespace:GDSCGestion.Models"
+             x:DataType="vm:UserListPageViewModel"
+             Shell.NavBarIsVisible="False"
+             xmlns:converters="clr-namespace:GDSCGestion.Converters"
+             Title="My control">
+
+    <ContentPage.Resources>
+        <converters:DateToTimeConverter x:Key="DateConverter"/>
+    </ContentPage.Resources>
+        <Grid RowDefinitions="*,50,*">
+            <StackLayout HorizontalOptions="Center" Margin="0,10,0,50">
+                <Label Text="My Control" FontSize="25"  />
+            </StackLayout>
+            <!--<StackLayout HorizontalOptions="Center" IsVisible="true" x:Name="MyActivityIndicator">
+                <ActivityIndicator x:Name="MyActivity" IsRunning="{Binding IsGettingData}"  />
+                <Label Text="Opération en sscours" FontSize="15" IsVisible="{Binding IsGettingData}" />
+            </StackLayout>-->
+            <Frame Margin="0,20" WidthRequest="250" HeightRequest="250" CornerRadius="50">
+                <zxing:CameraBarcodeReaderView WidthRequest="250" HeightRequest="250"
+                        IsDetecting="True" x:Name="ZScanner" 
+                                               IsTorchOn="True" BarcodesDetected="ZScanner_BarcodesDetected" />
+
+            </Frame>
+        <StackLayout Grid.Row="1">
+            <Label Text="Liste des personnes qui sont déjà passées."
+                   Margin="10,0" HorizontalTextAlignment="Center"
+                   HorizontalOptions="Center" FontSize="18" />
+        </StackLayout>
+            <ScrollView Grid.Row="2">
+            <ListView ItemsSource="{Binding UserPassages}" x:Name="MyListView">
+                <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:UserPassage">
+                            <ViewCell>
+                            <Grid ColumnDefinitions="*,*">
+                                <StackLayout Margin="10,0,0,0" VerticalOptions="Center">
+                                    <Label FontSize="17"
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding Code, StringFormat='Numéro : {0}'}"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" HorizontalOptions="Center" Margin="0,0,0,0" VerticalOptions="Center">
+                                    <Label FontSize="15" 
+                                           HorizontalTextAlignment="Center"
+                                           Text="{Binding DatePassage, Converter={x:StaticResource DateConverter},StringFormat='Heure : {0}'}"/>
+                                </StackLayout>
+                            </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </ScrollView>
+        </Grid>
+ 
+</ContentPage>
