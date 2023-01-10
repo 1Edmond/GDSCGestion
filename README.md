@@ -11,3 +11,4 @@ Lors du scanne, si le code scanné par l'application existe déjà un message es
 * SQLite : Base de donnée sur le téléphone
 * ZXinq : Bibliothèque utilisé pour scanner le code QR
 ## Interface de l'application
+<img src="https://mega.nz/file/6YdEmbaD#wFurwwBC3RtV9cwQgj7h2CznVvbovvnL0XcuAKHpxT0" />
