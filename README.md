@@ -9,7 +9,7 @@ Lors du scanne, si le code scanné par l'application existe déjà un message es
 * .Net Maui : Framework Microsoft pour le développement multiplateforme.
 * Pattern MVVM : Model View ViewModel
 * SQLite : Base de donnée sur le téléphone
-* ZXinq : Bibliothèque utilisé pour scanner le code QR
+* ZXinq : Bibliothèque utilisée pour scanner le code QR
 ## Interface de l'application
 <div>
   <img src="https://user-images.githubusercontent.com/99556348/211666762-9f690481-c224-4128-b6d3-50bce8edd4a6.jpg" width="240" heigth="240" />
